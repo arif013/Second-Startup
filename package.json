@@ -1,0 +1,11 @@
+{
+  "name": "second_startup",
+  "version": "1.0.0",
+  "description": "This is a full stack website of my second startup",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js && vite --port 5000"
+  },
+  "author": "Md Arif",
+  "license": "ISC"
+}
