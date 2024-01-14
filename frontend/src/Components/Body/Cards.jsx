@@ -7,17 +7,49 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 
-export default function MediaCard( props ) {
+// export default function MediaCard( props ) {
+//   return (
+//     <>
+//       {props.shoe.map((entry) => (
+        
+//         <Card key={entry.id} sx={{ maxWidth: 345, padding: "10px 20px" }}>
+//           <CardMedia
+//             sx={{ height: 380, width: "100%" }}
+//             image={entry.imageUrl}
+//             title="green iguana"
+//             component='img'
+//           />
+          
+//           <CardContent>
+//             <Typography gutterBottom variant="h5" component="div">
+//               {entry.Title}
+//             </Typography>
+//             <Typography variant="body2" color="text.secondary">
+//               {entry.Price}
+//             </Typography>
+//           </CardContent>
+//           <CardActions>
+//             <Button size="small">Share</Button>
+//             <Button size="small">Learn More</Button>
+//           </CardActions>
+//         </Card>
+//       ))}
+//     </>
+//   );
+// }
+
+export default function MediaCard(props) {
   return (
     <>
-      {props.shoe.map((entry) => (
-        
-        <Card key={entry.id} sx={{ maxWidth: 345, padding: "10px 20px" }}>
+      {props.shoe.map((entry, index) => (
+        <Card key={index} sx={{ maxWidth: 345, padding: "10px 20px" }}>
           <CardMedia
             sx={{ height: 380, width: "100%" }}
             image={entry.imageUrl}
             title="green iguana"
+            component="img"
           />
+          
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {entry.Title}

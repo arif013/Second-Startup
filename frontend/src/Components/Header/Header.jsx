@@ -65,7 +65,7 @@ export default function SearchAppBar() {
     },
   ]);
   useEffect(() => {
-    fetch("http://localhost:3001/")
+    fetch("http://localhost:3000/")
       .then((res) => res.json())
       .then((jsonRes) => setShoe(jsonRes));
   }, []);
