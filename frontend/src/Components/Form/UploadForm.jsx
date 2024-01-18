@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 
 const Form = () => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -79,13 +79,11 @@ const Form = () => {
   return (
     <Box
       component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
       noValidate
       autoComplete="off"
+      sx={{padding: "40px 300px"}}
     >
-      <Container maxwidth="lg" sx={{ mt: 8 }}>
+      <Grid style={{display:'grid', direction: "row"}} >
         {/* Text Inputs */}
         <TextField
           id="filled-multiline-flexible"
@@ -96,6 +94,7 @@ const Form = () => {
           name="title"
           onChange={handleChange}
           value={input.title}
+          fullWidth
         />
         <br />
         <TextField
@@ -139,7 +138,7 @@ const Form = () => {
         />
 
         {/* Image Input */}
-        <Stack direction="row" alignItems="center" spacing={2}>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{margin: "5px "}}>
           <label htmlFor="upload-image">
             <Button variant="contained" component="span">
               Choose Image
@@ -157,11 +156,12 @@ const Form = () => {
             <img src={imageUrl} alt="Uploaded Image" height="300" />
           )}
         </Stack>
-      </Container>
-
-      <button type="submit" onClick={handleClick}>
+        <Button variant='contained' sx={{ marginTop: 2, width: "50vw", margin: "0 200px"}} type="submit" onClick={handleClick}>
         Submit
-      </button>
+      </Button>
+      </Grid>
+
+      
     </Box>
   );
 };

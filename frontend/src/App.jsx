@@ -1,9 +1,7 @@
-// import { useState } from 'react'
 import "./App.css";
-import Header from "./Components/Header/Header";
-import Cards from "./Components/Body/Cards";
-import { useEffect, useState } from "react";
-import { Grid } from "@mui/material";
+import LandingPage from "./Components/LandingPage/LandingPage.jsx"
+import Header from "./Components/Header/Header.jsx"
+import Body from "./Components/Body/Body.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -18,7 +16,21 @@ function App() {
   const router = createBrowserRouter([
     {
       path:"/",
-      element: <Header/>,
+      element: (
+        <>
+        <Header/>
+      <LandingPage/>
+      </>
+      )
+    },
+    {
+      path: "/shoes",
+      element: (
+        <>
+        <Header/>
+      <Body/>
+      </>
+      )
     },
     {
       path:"/upload",
