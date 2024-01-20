@@ -9,9 +9,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-// import Cards from "./Cards";
-import { useEffect, useState } from "react";
+import SearchIcon from '@mui/icons-material/Search';''
 import { Grid, Container } from "@mui/material";
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
@@ -19,6 +17,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate } from 'react-router-dom';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -63,7 +62,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Sell', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function HeaderBar(){
@@ -84,6 +83,18 @@ export default function HeaderBar(){
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const navigate = useNavigate()
+  const handleNavigateToShoes=() =>{
+    console.log("navigating to shoes")
+    navigate('/shoes')
+    handleCloseNavMenu()
+  }
+  const handleNavigateToSell = ()=>{
+    navigate('/sell')
+    handleCloseNavMenu()
+  }
+
   return (
     <>
     <AppBar position="static">
@@ -104,18 +115,23 @@ export default function HeaderBar(){
               color: 'inherit',
               textDecoration: 'none',
             }}
+            onClick={()=>{
+              navigate('/')
+            }}
           >
             flyROCK
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
+              // onClick={handleNavigateToShoes}
               color="inherit"
+
             >
               <MenuIcon />
             </IconButton>
@@ -138,9 +154,13 @@ export default function HeaderBar(){
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Button
+                key={page}
+                onClick={ handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
               ))}
             </Menu>
           </Box>
@@ -167,7 +187,13 @@ export default function HeaderBar(){
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                // onClick={handleCloseNavMenu}
+                onClick={()=>{
+                  // console.log(`button pressed: ${page}`)
+                  if (page==='Sell') handleNavigateToSell()
+                  else if(page === 'Products') handleNavigateToShoes()
+                  // page === 'Products' ? handleNavigateToShoes() : handleCloseNavMenu()
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

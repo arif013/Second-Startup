@@ -2,6 +2,8 @@ import "./App.css";
 import LandingPage from "./Components/LandingPage/LandingPage.jsx"
 import Header from "./Components/Header/Header.jsx"
 import Body from "./Components/Body/Body.jsx";
+import SignIn from "./Components/Signin/Singin.jsx";
+import SignUp from "./Components/Signin/Signup.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -33,8 +35,31 @@ function App() {
       )
     },
     {
-      path:"/upload",
-      element:<UploadForm/>
+      path:"/sell",
+      element:(
+        <>
+        <Header/>
+      <UploadForm/>
+      </>
+      )
+    },
+    {
+      path: "/signin",
+      element:(
+        <>
+        <Header/>
+        <SignIn/>
+        </>
+      )
+    },
+    {
+      path: "/signup",
+      element:(
+        <>
+        <Header/>
+        <SignUp/>
+        </>
+      )
     }
   ])
 

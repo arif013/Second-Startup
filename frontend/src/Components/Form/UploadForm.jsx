@@ -95,6 +95,7 @@ const Form = () => {
           onChange={handleChange}
           value={input.title}
           fullWidth
+          autoFocus
         />
         <br />
         <TextField
